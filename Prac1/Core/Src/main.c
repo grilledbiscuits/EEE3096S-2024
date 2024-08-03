@@ -44,7 +44,7 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define input variables
-
+volatile int x;
 
 /* USER CODE END PV */
 
@@ -93,23 +93,181 @@ int main(void)
   // TODO: Start timer TIM16
 
   /* USER CODE END 2 */
-
+  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
+  {
+    /* Initialization Error */
+    Error_Handler();
+  }
+  if (HAL_TIM_Base_Start_IT(&htim16) != HAL_OK)
+  {
+    /* Starting Error */
+    Error_Handler();
+  }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-
-    // TODO: Check pushbuttons to change timer delay
-    
-    
-
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_SET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin,GPIO_PIN_RESET);
+	  }
+	  if(__HAL_TIM_GET_FLAG(&htim16, TIM_FLAG_CC1) != RESET && HAL_GPIO_ReadPin (Button3_GPIO_Port, Button3_Pin) != GPIO_PIN_RESET)
+	  {
+		  HAL_Delay(x);
+	  }
   }
   /* USER CODE END 3 */
 }
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim16)
+{
+	  if(HAL_GPIO_ReadPin (Button0_GPIO_Port, Button0_Pin) == GPIO_PIN_RESET)
+	  {
+		  x=500;
+                  // did not do that - no change
+	  }
+	  else if(HAL_GPIO_ReadPin (Button1_GPIO_Port, Button1_Pin) == GPIO_PIN_RESET)
+	  {
+		  x=2000;
+	  }
+	  else if(HAL_GPIO_ReadPin (Button2_GPIO_Port, Button2_Pin) == GPIO_PIN_RESET)
+	  {
+		  x=1000;
+	  }
+	  else
+	  {
+
+	  }
+
+}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -168,6 +326,7 @@ static void MX_TIM16_Init(void)
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
   htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+
   if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
   {
     Error_Handler();
