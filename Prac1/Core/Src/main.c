@@ -252,7 +252,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim16)
 	  if(HAL_GPIO_ReadPin (Button0_GPIO_Port, Button0_Pin) == GPIO_PIN_RESET)
 	  {
 		  x=500;
-                  // did not do that - no change
 	  }
 	  else if(HAL_GPIO_ReadPin (Button1_GPIO_Port, Button1_Pin) == GPIO_PIN_RESET)
 	  {
